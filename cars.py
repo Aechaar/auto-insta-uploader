@@ -114,11 +114,11 @@ def get_model_response(user_prompt, system_prompt):
 posts = 0
 
 while True:
-    os.startfile(r"C:\Users\Aech\Documents\Auto Insta\ComfyUI_windows_portable\run_nvidia_gpu.bat")
+    os.startfile(r"ComfyUI_windows_portable\run_nvidia_gpu.bat")
     server_address = "127.0.0.1:8188"
     client_id = str(uuid.uuid4())
     time.sleep(30)
-    file = open(r"C:\Users\Aech\Documents\Auto Insta\cars.txt")
+    file = open(r"cars.txt")
     cars = file.readlines()
     car = random.choice(cars)
     art_type = ["render", "fresco", "collage", "mosaic", "pastel drawing", "painting", "photograph", "oil painting", "watercolour painting", "cinematic photograph", "manga sketch", "digital artpiece", "detailed painting", "abstract painting"]
@@ -141,7 +141,7 @@ while True:
     #    comfyui_path_image = upload_file(f,"",True)
 
     #load workflow from file
-    with open(r"C:\Users\Aech\Documents\Auto Insta\workflow.json", "r", encoding="utf-8") as f:
+    with open(r"workflow.json", "r", encoding="utf-8") as f:
         workflow_data = f.read()
 
     workflow = json.loads(workflow_data)
@@ -227,8 +227,8 @@ while True:
     print("Posted!")
     posts += 1
     
-    if os.path.exists(r"C:\Users\Aech\Documents\Auto Insta\PaintingsCarsNew\{}-{}.png".format(node_id,seed)):  
-        os.remove(r"C:\Users\Aech\Documents\Auto Insta\PaintingsCarsNew\{}-{}.png".format(node_id,seed))
+    if os.path.exists(r"PaintingsCarsNew\{}-{}.png".format(node_id,seed)):  
+        os.remove(r"PaintingsCarsNew\{}-{}.png".format(node_id,seed))
     else:
         print("File non existent")
 
